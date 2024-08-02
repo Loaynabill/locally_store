@@ -1,0 +1,48 @@
+<div class="backgroundimage">
+    <div class="overlay1">
+
+    </div>
+    <div class="textheadr h-100 d-flex justify-content-center align-items-center">
+        <h1 class="text-white  animate__animated animate__pulse animate__infinite	infinitee animate__slow	1s">welcome to
+            locally store</h1>
+    </div>
+</div>
+<section class="container-fluied px-lg-5 px-1">
+    <div class="row justify-content-between align-items-center hideeee">
+
+        <div class="col-12 text-center divgender">
+            <h2>choose your gender now </h2>
+            <hr class="mt-4">
+        </div>
+        <div class="col-lg-5 col-6 pp">
+            <div [class.animateman]="activeAnimation" class="divsex animateman w-100 shadow"
+                [routerLink]="['/Product/Mens',1]">
+                <p class="py-md-2 py-1">mens</p>
+                <img src="../../../assets/men_photo.webp">
+            </div>
+        </div>
+        <div class="col-lg-5 col-6 pp">
+            <div [class.animatewoamen]="activeAnimation" class="divsex animatewoamen w-100 shadow"
+                [routerLink]="['/Product/Woamens',2]">
+                <div>
+                    <p class="py-md-2 py-1">woamen</p>
+                </div>
+                <img src="../../../assets/woamen_photoo.webp">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div class="divPromocode overflow-hidden d-flex align-items-center justify-content-center">
+    <div class="overlay"></div>
+    <div class="text-center px-3 ">
+        <h2 [hidden]="topAndBottomAnimate==false"
+            [ngClass]="{'topAnimateforsmall':topAndBottomAnimateForsm==true,'topAnimate':topAndBottomAnimate==true}">get
+            your promo code to get sale</h2>
+        <button [hidden]="topAndBottomAnimate==false"
+            [ngClass]="{'bottomAnimateforsmall':topAndBottomAnimateForsm==true,'bottomAnimate':topAndBottomAnimate==true}"
+            routerLink="/Product/Promocode" class="px-4 py-2 mt-5">GET
+            PROMOCODE</button>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<section class="container-fluied imgback ">
+    <div class="overlay"></div>
+    <div class="row px-2 px-md-3 ">
+
+        <div class="col-12 py-3 text-center zindex px-3">
+
+            <h1>contact us</h1>
+            <h4>our phone : 01111158142</h4>
+            <h4>our gmail : loay.nabilpo&#64;gmail.com</h4>
+
+        </div>
+        <div class="col-11 col-md-8 mx-auto form mt-2 pb-5">
+            <form #formessage="ngForm" (ngSubmit)="sendmsg(formessage.value)">
+                <div class="mb-4">
+                    <label for="username" class="form-label">Your name</label>
+                    <input [ngClass]="{'is-valid': username.valid,'is-invalid': username.invalid&& username.touched}"
+                        #username="ngModel" type="text" ngModel required class="form-control" pattern="[a-zA-Z\s]+$"
+                        id="username" placeholder="enter your name" name="name" />
+                    <div *ngIf="username.touched && username.invalid">
+                        <p class="mt-2" *ngIf="username.errors?.['required']">
+                            please enter your name
+                        </p>
+                        <p class="mt-2" *ngIf="username.errors?.['pattern']">
+                            enter vaild name
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="form-label">Your email</label>
+                    <input [ngClass]="{'is-valid': email.valid,'is-invalid': email.invalid&& email.touched}"
+                        #email="ngModel" type="email" ngModel required class="form-control" id=" email"
+                        placeholder="name@example.com" name="useremail"
+                        pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" />
+                    <div *ngIf="email.touched && email.invalid">
+                        <p class="mt-2" *ngIf="email.errors?.['pattern']">
+                            enter a valid email
+                        </p>
+                        <p class="mt-2" *ngIf="email.errors?.['required']">
+                            the email is required
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="mse" class="form-label">Your message</label>
+                    <textarea #textarea="ngModel" id="mse" ngModel required placeholder="enter your message"
+                        name="messageuser" class="form-control" aria-label="With textarea"></textarea>
+                    <div *ngIf="textarea.touched && textarea.invalid">
+                        <p class="mt-2" *ngIf="textarea.errors?.['required']">
+                            the message is required
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center text-md-start mt-4">
+                    <button [disabled]="formessage.invalid" class="btn py-1" type="submit">
+                        submit
+                    </button>
+                </div>
+            </form>
+            <div class=" col-11 mx-auto ourbaranches text-center ">
+                <h3 class="text-white mb-5">our branches</h3>
+                <iframe class=" w-100 "
+                    src="
+                    https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13816.618192252412!2d31.496267857573535!3d30.032423725819783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458235d3a77870f%3A0x54c821b522480c9f!2sLocally!5e0!3m2!1sar!2seg!4v1721002155774!5m2!1sar!2seg"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div [class.logos]="logoanime" class="row justify-content-between text-center py-4 col-8 mx-auto logos">
+            <div class="col"><a href="https://www.facebook.com/loay.nabil.984?mibexid=PtKJ9" target="_blank"><i
+                        class="fa-brands fa-facebook"></i></a></div>
+            <div class="col"><a
+                    href="https://www.instagram.com/loay__nabill?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+            <div class="col"><a href="https://www.linkedin.com/in/loay-nabil-31a731283" target="_blank"><i
+                        class="fa-brands fa-linkedin"></i></a></div>
+            <div class="col"><a href="https://github.com/Loaynabill" target="_blank"><i
+                        class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+</section>

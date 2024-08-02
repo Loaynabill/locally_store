@@ -1,0 +1,242 @@
+.backgroundimage{
+    background-image: url(../../../assets/headerhomepage.jpg);
+    background-attachment: fixed;
+    height: 88vh;
+    width: 100%;
+    background-position: top center;
+    margin-top: var(--sectionpaddingy);
+    position: relative;
+}
+.overlay1{
+position: absolute;
+width: 100%;
+height: 100%;
+background-color: black;
+opacity: 0.65;
+z-index: 2;
+}
+
+.textheadr{
+position: relative;
+z-index: 3;
+text-shadow: 5px 5px black;
+}
+
+section{
+    padding-bottom: var(--sectionpaddingy);
+}
+
+.divgender{
+    padding: 6rem 1rem !important;
+    font-family: "Oleo Script", system-ui !important;  
+       
+}
+
+h2{
+    font-family: "Oleo Script", system-ui !important; 
+    font-weight: 600;
+}
+
+hr{
+    color: yellow;
+    width: 15%;
+    background-color: yellow;
+    height: 0.2rem;
+    margin: 0 auto;
+    opacity: 1;
+    border-radius: 2.5px;
+}
+
+.hideeee{
+    overflow-x: hidden;
+}
+
+.divsex{
+    position: relative;
+    min-height: 17.5rem;
+    overflow: hidden;
+    
+}
+
+.divsex p {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(172, 172, 172, 0.432);
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    z-index: 1;
+    
+    
+}
+
+.divsex:hover img{
+transform: scale(1.15);
+}
+
+.animateman{
+    animation: toright 1s ease-in-out 0s 1 both;
+}
+
+.animatewoamen{
+    animation: toleft 1s ease-in-out 0s 1 both ;
+}
+
+.pp img{
+    width: 100%;
+    min-height: 17.5rem;
+
+    transition: all 200ms linear ;
+}
+
+.divPromocode{
+    position: relative;
+    height: 70vh;
+    background-image: url(../../../assets/getpromocode.jpeg);
+    background-attachment: fixed;
+    width: 100%;
+    background-position: top center;
+    
+}
+
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0 !important;
+    margin: 0!important;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+    
+    
+}
+
+.divPromocode h2 {
+    color: white !important;
+    text-shadow: 5px 5px black;
+    position: relative;
+    z-index: 2;
+}
+
+.divPromocode button{
+    background-color: white;
+    position: relative;
+    z-index: 2;
+    border-radius: 0.75rem;
+    border: none;
+    color: black;
+    font-weight: bold;
+    transition: all 300ms ease-in-out;
+}
+
+.divPromocode button:hover{
+background-color: var(--hover-blackAndWite);
+transform: scale(1.15);
+}
+
+
+.topAnimate{
+    animation: tobottom 1.5s ease-in-out 0s 1 both;
+}
+
+.bottomAnimate{
+    animation: totop 1.5s ease-in-out 0s 1 both;
+}
+
+@keyframes totop {
+    from{
+        bottom: -15rem;
+        opacity: 0;
+    }to{
+        bottom:0;
+        opacity: 1;
+    }
+    
+}
+
+@keyframes tobottom {
+    from{
+        top: -15rem;
+        opacity: 0;
+    }to{
+        top: 0;
+        opacity: 1;
+    }
+    
+}
+
+
+
+@keyframes toright {
+    from{
+left: -110%;
+opacity: 0;
+    }
+    to{
+left: 0%;
+opacity: 1;
+    }
+    
+}
+
+@keyframes toleft {
+    from{
+right: -110%;
+opacity: 0;
+    }
+    to{
+right:0%;
+opacity: 1;
+    }
+    
+}
+
+@media (max-width:768px) {
+    @keyframes toright {
+        from{
+         left: -50% !important;
+        }
+        to{
+    left: 0%;
+        }
+        
+    }
+
+}
+
+
+@media (min-width:0px) and (max-width:705px) {
+    .bottomAnimateforsmall{
+        animation: totop 1.5s ease-in-out 0s 1 both;
+    }
+    .topAnimateforsmall{
+        animation: tobottom 1.5s ease-in-out 0s 1 both;
+    }
+    @keyframes tobottom {
+        from{
+            top: -15rem;
+            opacity: 0;
+        }to{
+            top: 0;
+            opacity: 1;
+        }
+        
+    }
+    
+    @keyframes totop {
+        from{
+            bottom: -15rem;
+            opacity: 0;
+        }to{
+            bottom:0;
+            opacity: 1;
+        }
+        
+}
+}
+
+
+

@@ -1,0 +1,69 @@
+<section class="container-fluied px-lg-5 px-2 px-md-4">
+
+    <div class="row overflow-hidden gy-5  gx-2 gx-md-3 align-items-center">
+        <div class="text-center col-12 ">
+            <h1 class="py-4"><span routerLink="/Home">Home / </span>{{gender}}</h1>
+        </div>
+        <div class="row gy-3 justify-content-between align-items-center p-0 px-4 m-0 py-md-5 py-2">
+            <div class="col-12 col-md-6 col-lg-4 mx-auto mx-md-0">
+                <select class="form-select shadow" #valueOfCat (change)="filterByCategory(+valueOfCat.value)"
+                    aria-label="Default select example">
+                    <option selected value="0">select the category</option>
+                    <option value="1">jackets</option>
+                    <option value="2">hoodies</option>
+                    <option value="3">t-shirt</option>
+                    <option value="4">jeans</option>
+                    <option value="5">pants</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mx-auto mx-md-0">
+                <select class="form-select shadow" #valueOfSort (change)="filterBySort(+valueOfSort.value)"
+                    aria-label="Default select example">
+                    <option selected value="0">sort by deafult</option>
+                    <!-- <option value="1">sort by popularity</option> -->
+                    <option value="2">sort by price "high to low"</option>
+                    <option value="3">sort by price "low to high"</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12 py-3 row justify-content-end">
+            <div class="divaddprd"><button routerLink="/Product/addPrd" *ngIf="userType">add product</button></div>
+        </div>
+        <ng-container *ngFor="let product of productlist">
+            <div [routerLink]="['/Product/Productdeatiles',product.id]" class="col-6 col-md-4 col-lg-3 ">
+                <div class="card prdAnimation  mx-auto">
+                    <div class="productImg position-relative d-flex align-items-center">
+                        <div *ngIf="product.amount.s==0 && product.amount.m==0 && product.amount.l==0 && product.amount.xl==0"
+                            class="soldout text-center ">
+                            <p class="py-3 m-0">out of stock</p>
+                        </div>
+                        <img class="imgHover" src="../../../assets/{{product.images[1]}}">
+                        <img src="../../../assets/{{product.images[0]}}" class="card-img-top" [alt]="product.title">
+                    </div>
+                    <div class="card-body row gy-0">
+                        <div class="cardtit mb-3" [ngSwitch]="product.categoryid">
+                            <p class="m-0" *ngSwitchCase="1">jackets</p>
+                            <p class="m-0" *ngSwitchCase="2">hoodies</p>
+                            <p class="m-0" *ngSwitchCase="3">t-shirt</p>
+                            <p class="m-0" *ngSwitchCase="4">jeans</p>
+                            <p class="m-0" *ngSwitchCase="5">pants</p>
+                            <p class=" m-0 p-0"></p>
+                            <h5 class="card-title mt-3 mb-0">{{product.title}}</h5>
+                        </div>
+
+                        <div class="editbtn d-flex justify-content-between align-items-center ">
+                            <p class="card-text green  m-0 p-0">{{product.price | currency: "LE "}}</p><button
+                                *ngIf="userType" class="btn ms-auto " [routerLink]="['/Product/update',product.id]"><i
+                                    class="fa-solid editi fa-pen-to-square"></i></button>
+                            <button *ngIf="userType" class="ms-3 cancel" (click)="deleteprd(product.id)"><i
+                                    class="fa-solid fa-xmark"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
+
+</section>

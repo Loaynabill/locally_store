@@ -1,0 +1,17 @@
+<section class="container-fluied px-lg-5 px-md-4  px-2">
+    <div class="row overflow-hidden g-3 g-md-5 justify-content-start align-items-center">
+        <div class="text-center mb-4">
+            <h1>all active promocode</h1>
+            <hr class="mt-4">
+        </div>
+        <ng-container *ngFor="let promocode of promocodeList">
+            <div class="col-6 col-md-4 ">
+                <div class="promocode promocodeAnimation shadow text-center py-4">
+                    <h2 class="text-uppercase mb-3">{{promocode.title}}</h2>
+                    <p>{{promocode.sale}}% sale</p>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+</section>

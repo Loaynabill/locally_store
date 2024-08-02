@@ -1,0 +1,61 @@
+section{
+    min-height: 50vh;
+    padding: 15rem 0 10rem ;
+}
+
+hr{
+    color:red;
+    width: 15%;
+    background-color:red;
+    height: 0.2rem;
+    margin: 0 auto;
+    opacity: 1;
+    border-radius: 2.5px;
+}
+
+.promocode{
+    border: 2px solid var(--hover-blackAndWite);
+    border-radius: 10px;
+}
+
+.promocode p{
+    color: red;
+    font-weight: 700;
+}
+
+.promocodeAnimation{
+    animation: goup 2s ease-in-out 0s 1 both;
+    position: relative;
+    
+}
+
+h2{
+    font-weight: 700;
+}
+
+@keyframes goup {
+    from{
+        opacity: 0;
+        bottom: -50rem;
+    }
+    to{
+        opacity: 1;
+        bottom: 0;
+    }
+}
+
+
+@media (max-width:425px) {
+    h2{
+        font-size: 1.2rem;
+
+    }
+    
+}
+
+@media (max-width:767px) {
+    section{
+        padding: var(--sectionPaddinyYForsm);
+    }
+    
+}

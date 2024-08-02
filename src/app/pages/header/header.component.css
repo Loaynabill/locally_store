@@ -1,0 +1,300 @@
+body {
+  position: relative;
+}
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+nav {
+  background-color: black;
+  color: white;
+  position: relative;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.navbar-nav a {
+  color: var(--hover-blackAndWite);
+  font-weight: 700;
+  transition: all 200ms ease-in-out;
+  border-bottom: 2px transparent solid;
+  padding: 1.1rem 0.6rem !important;
+}
+
+.navbar-nav a:hover {
+  color: white;
+  font-weight: 500;
+  border-bottom: 2px white solid;
+}
+
+.active {
+  color: white !important;
+  font-weight: 500 !important;
+  border-bottom: 2px white solid !important;
+}
+
+.groubIcon ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.groubIcon i {
+  font-size: 1.26rem;
+  color: white;
+}
+
+.groubIcon button{
+    background-color: black;
+    border: none;
+}
+
+button {
+  background-color: white;
+  transition: all 200ms ease-in-out;
+}
+
+.bromoandwarning {
+  background-color: yellow;
+}
+
+.bromoandwarning span {
+  font-weight: 700;
+  animation: goleft 10s ease-in-out 0s infinite both;
+  position: relative;
+}
+
+header {
+  width: 100% !important;
+  overflow-x: hidden;
+}
+
+.navbar-collapse {
+  flex-basis: 0%;
+}
+
+.close{
+  background-color: transparent !important;
+}
+
+
+.divCart {
+  position: fixed;
+  
+  height: 100% !important;
+  width: 100%;
+  display: flex !important;
+  z-index: 10000;
+  right: 0;
+  animation: gotoright 1s ease-in-out 0s 1 both;
+}
+
+.cartshop{
+background-color: white !important;
+  height: 100%;
+  overflow-y: auto;
+
+}
+
+.cancelCart {
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  overflow-y: auto;
+  display: flex !important;
+  animation: gotolefttocanel 2s ease-in-out 0s 1 both;
+  
+}
+
+.cancel button {
+    border: none;
+}
+
+.paddingCancl{
+    padding: 3.5px 7.5px;
+}
+
+.btn{
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 10px; 
+}
+
+.btnClear{
+    background-color:yellow;
+    color: black;
+}
+
+.btnCheck{
+    background-color: black;
+    color: white;
+}
+
+.badge{
+  left: 1.75rem !important;
+}
+
+
+.redx{
+  color: black;
+  transition: all 200ms linear;
+}
+
+.redx:hover{
+  transform: scale(1.1);
+  color: red;
+}
+
+@keyframes gotoright {
+    from {
+      right: -30%;
+      opacity: 0;
+      display: block;
+    }
+    to {
+      right: 0%;
+      opacity: 1;
+      display: block !important;
+    }
+  }
+
+@keyframes gotolefttocanel {
+  from {
+    right: 0%;
+    display: flex !important;
+    opacity: 1;
+  }
+  to {
+    right: -100%;
+    opacity: 1;
+    display:none  ;
+  }
+}
+
+
+
+@keyframes goleft {
+  from {
+    left: -20%;
+  }
+  to {
+    left: 90%;
+  }
+}
+
+@media (min-width:0px) and (max-width:550px) {
+    .divCart {
+        position: fixed;
+        background-color: white;
+        overflow-y: auto;
+        height: 100%;
+        width: 95% !important;
+        display: block !important;
+        z-index: 50000;
+        right: 0;
+        animation: gotoright 1s ease-in-out 0s 1 both;
+      }
+      .cancelCart {
+        animation: gotolefttocanel 1s ease-in-out 0s 1 both;
+      }
+    @keyframes gotoright {
+        from {
+          right: -80%;
+          opacity: 0;
+          display: block;
+        }
+        to {
+          right: 0%;
+          opacity: 1;
+          display: block !important;
+        }
+      }
+    
+    @keyframes gotolefttocanel {
+      from {
+        right: 0%;
+        opacity: 1;
+      }
+      to {
+        right: -80%;
+        opacity: 0;
+        display: none !important;
+       
+      }
+    }
+    
+}
+@media (min-width:551px) and (max-width:785px) {
+    .divCart {
+        position: fixed;
+        background-color: white;
+        overflow-y: auto;
+        height: 100%;
+        width: 100% !important;
+        display: block !important;
+        z-index: 50000;
+        right: 0;
+        animation: gotoright 1s ease-in-out 0s 1 both;
+      }
+      .cancelCart {
+        animation: gotolefttocanel 1s ease-in-out 0s 1 both;
+      }
+    @keyframes gotoright {
+        from {
+          right: -50%;
+          opacity: 0;
+          display: block;
+        }
+        to {
+          right: 0%;
+          opacity: 1;
+          display: block !important;
+        }
+      }
+    
+    @keyframes gotolefttocanel {
+      from {
+        right: 0%;
+        opacity: 1;
+      }
+      to {
+        right: -50%;
+        opacity: 0;
+        display: none !important;
+       
+      }
+    }
+    
+}
+
+@media (max-width: 1300px) {
+  .bromoandwarning .hide {
+    display: none;
+  }
+
+  .bromoandwarning span {
+    font-size: 0.7rem;
+    font-weight: bold !important;
+  }
+}
+
+@media (max-width: 990px) {
+  .navbar-collapse {
+    flex-basis: 100% !important;
+  }
+  .navbar-toggler {
+    font-size: 1rem !important;
+  }
+
+  button:hover {
+    background-color: var(--hover-blackAndWite);
+  }
+
+  .groubIcon i {
+    font-size: 1rem;
+  }
+}

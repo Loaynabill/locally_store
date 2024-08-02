@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+    --hover-blackAndWite: rgb(163, 163, 163);
+    --navbar-linkNoActive:#c9c9c9;
+    --sectionpaddingy:5rem;
+    --sectionPaddingY:12.5rem 0 7.5rem ;
+    --sectionPaddinyYForsm: 8rem 0 5rem;
+}
+
+*{
+    padding: 0 ;
+    margin: 0 ;
+    box-sizing: border-box !important;
+    text-transform: capitalize;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 100;
+    
+
+   
+}
+
+html,
+body{
+    overflow-x: hidden !important;
+}
+
+.green{
+    color: green;
+    font-weight: 700;
+}
+
+.redbg{
+    background-color:transparent!important;
+    color: red;
+    border: none;
+}
+
+
+.red{
+    color:red ;
+
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.swAlert{
+    font-family: 'Courier New', Courier, monospace !important;
+}

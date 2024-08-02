@@ -1,0 +1,33 @@
+section {
+    padding: var(--sectionPaddingY);
+}
+
+
+label{
+    margin-bottom: 0.5rem;
+}
+
+.footer .btn{
+   padding: 0.5rem 2rem;
+   background-color: black;
+   color: white;
+   transition: all 200ms ease-in-out ;
+   border: transparent;
+}
+
+.footer .btn:hover{
+    transform: scale(1.05);
+ }
+
+ .rightside{
+    background-color: rgb(243, 243, 243);
+ }
+
+
+ @media (max-width:767px) {
+    section{
+        padding:var(--sectionPaddinyYForsm) !important;
+    }
+
+
+}

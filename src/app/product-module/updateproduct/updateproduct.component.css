@@ -1,0 +1,30 @@
+section{
+    padding:var(--sectionPaddingY);
+}
+
+label {
+    display: block;
+}
+input{
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid gray !important;
+}
+
+hr{
+    width: 5.5rem;
+    background-color: red;
+    height: 3.5px;
+    color: red;
+    opacity: 1;
+    border-radius: 5px;
+}
+
+
+@media (max-width:767px) {
+    section{
+        padding:var(--sectionPaddinyYForsm);
+    }
+
+
+}

@@ -1,0 +1,52 @@
+<section class="container-fluied px-lg-5 px-md-4 px-2">
+    <div class="row h-100 w-100 justify-content-center align-items-center">
+        <div class="login col-10 col-md-6 mx-auto p-5">
+            <h2 class="text-center">my account</h2>
+            <div>
+                <form #profileForm="ngForm">
+                    <div class="my-4">
+                        <label class="d-block" for="userName">user name</label>
+                        <input name="userName" id="userName" type="text" #userName="ngModel" ngModel required
+                            placeholder="enter your name" [value]="profileDeatiles.userName">
+                        <div *ngIf="userName.invalid && userName.touched">
+                            <p class="red" *ngIf="userName.errors?.['required']">please enter your name</p>
+                            <!-- <p *ngIf="email.errors?.['pattern']">please enter correct email</p> -->
+                        </div>
+                    </div>
+                    <div class="my-4">
+                        <label class="d-block" for="phone">phone number</label>
+                        <input name="phone" id="phone" type="text" #phone="ngModel" ngModel required
+                            placeholder="enter your phone number" [value]="profileDeatiles.phone">
+                        <div *ngIf="phone.invalid && phone.touched">
+                            <p class="red" *ngIf="phone.errors?.['required']">please enter your name</p>
+                            <!-- <p *ngIf="email.errors?.['pattern']">please enter correct email</p> -->
+                        </div>
+                    </div>
+                    <div class="my-4">
+                        <label class="d-block" for="email">email</label>
+                        <input name="email" id="email" type="text" #email="ngModel" ngModel required
+                            placeholder="enter your email" [value]="profileDeatiles.email">
+                        <div *ngIf="email.invalid && email.touched">
+                            <p class="red" *ngIf="email.errors?.['required']">please enter your email</p>
+                            <!-- <p *ngIf="email.errors?.['pattern']">please enter correct email</p> -->
+                        </div>
+                    </div>
+                    <div class="my-4">
+                        <label class="d-block" for="pass">password</label>
+                        <input name="password" id="pass" type="password" #password="ngModel" ngModel required
+                            placeholder="enter your password" [value]="profileDeatiles.password">
+                        <div *ngIf="password.invalid && password.touched">
+                            <p class="red" *ngIf="password.errors?.['required']">please enter your password</p>
+                            <!-- <p *ngIf="password.errors?.['pattern']">please enter correct email</p> -->
+                        </div>
+                    </div>
+                    <div class="mt-4"><input class="btn bg-black text-white" [disabled]="profileForm.invalid"
+                            type="submit"></div>
+                </form>
+                <div class="mt-4"><button class="btn bg-black text-white" (click)="logout()" routerLink="/login">log out</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

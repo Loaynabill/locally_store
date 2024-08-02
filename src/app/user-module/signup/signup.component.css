@@ -1,0 +1,51 @@
+section {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../assets/login2.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.login{
+    background-color:#b0a3e271;
+    border-radius: 10px;
+}
+
+p{
+    text-shadow: 1px 2.5px 5px black;
+}
+
+.haveacc p,
+label,
+h2{
+    color: white;
+    text-shadow: 1px 2px 3px black;
+}
+
+
+
+
+input{
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid gray !important;
+    border-radius: 1rem;
+}
+
+.haveacc a{
+    text-decoration: none;
+    color: rgb(147,24,88);
+}
+
+.btn{
+    background-image: linear-gradient(to right,rgb(147,24,88),#0b1633) !important;
+    border: transparent !important;
+    transition: all 200ms linear;
+}
+
+.btn:hover{
+    transform: scale(1.02);
+}
+

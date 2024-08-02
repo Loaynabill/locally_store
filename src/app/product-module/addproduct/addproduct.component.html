@@ -1,0 +1,70 @@
+<section class="container-fluied px-lg-5 px-2 px-md-4">
+    <div class="row justify-content-center align-items-center">
+        <div class="form col-11 col-md-8 mx-auto">
+            <div class="text-center pt-3 pb-5">
+                <h2>add product</h2>
+                <hr class="mx-auto">
+            </div>
+            <form #addprd="ngForm" class="row">
+                <div class="mb-4">
+                    <label class="mb-2" for="title">product name <span class="red ms-1">&#8727;</span></label>
+                    <input type="text" required name="title" #title="ngModel" ngModel id="title" />
+                    <div *ngIf="title.touched && title.invalid">
+                        <small class="red" *ngIf="title.errors?.['required']">please enter the product name</small>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="mb-2" for="price">price <span class="red ms-1">&#8727;</span></label>
+                    <input type=" number" required name="price" #price="ngModel" ngModel id="price" />
+                    <div *ngIf="price.touched && price.invalid">
+                        <small class="red" *ngIf="price.errors?.['required']">please enter the price</small>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="images">product images <span class="red ms-1">&#8727;</span></label>
+                    <small class="pb-2">write like this ["","",..]</small>
+                    <input type="text" required name="images" #images="ngModel" ngModel id="images" />
+                    <div *ngIf="images.touched && images.invalid">
+                        <small class="red" *ngIf="images.errors?.['required']">please enter the product images</small>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="categoryid">category id <span class="red ms-1">&#8727;</span></label>
+                    <small class="pb-2">1 for jackets , 2 for hoodies , 3 for t-shirts , 4 for jeans , 5 for
+                        pants</small>
+                    <input type="number" min="1" max="5" required name="categoryid" #categoryid="ngModel" ngModel
+                        id="categoryid" />
+                    <div *ngIf="categoryid.touched && categoryid.invalid">
+                        <small class="red" *ngIf="categoryid.errors?.['required']">please enter the category id</small>
+                        <small class="red" *ngIf="categoryid.errors?.['min']">this number is not valid</small>
+                        <small class="red" *ngIf="categoryid.errors?.['max']">this numnrt is not valid</small>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="images">gender id <span class="red ms-1">&#8727;</span></label>
+                    <small class="pb-2">1 for men, 2 for women</small>
+                    <input type="number" min="1" max="2" required name="genderid" #genderid="ngModel" ngModel
+                        id="genderid" />
+                    <div *ngIf="genderid.touched && genderid.invalid">
+                        <small class="red" *ngIf="genderid.errors?.['required']">please enter the gender id</small>
+                        <small class="red" *ngIf="genderid.errors?.['min']">this number is not valid</small>
+                        <small class="red" *ngIf="genderid.errors?.['max']">this number is not valid</small>
+                    </div>
+                </div>
+                <div>
+                    <label for="amount">amount <span class="red ms-1">&#8727;</span></label>
+                    <small class="pb-2">write like this
+                    </small>
+                    <input type="text" required name="amount" #amount="ngModel" ngModel id="amount" />
+                    <div *ngIf="amount.touched && amount.invalid">
+                        <small class="red" *ngIf="amount.errors?.['required']">please enter the amount</small>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <input type="submit" value="add now" class="btn bg-black text-white" [disabled]="addprd.invalid"
+                        (click)="addprdd(addprd.value,addprd)">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,222 @@
+section {
+    padding: var(--sectionPaddingY);
+}
+
+.imgslider{
+    max-height: 40rem !important;
+}
+
+
+th,
+td {
+    padding: 1.5rem 0.5rem;
+}
+
+.table {
+    background-color: rgb(233, 233, 233);
+    padding: 2rem 1rem !important;
+}
+
+
+.divLeftimg {
+    width: 100%;
+    height: 7.5rem;
+}
+
+.divLeftimg img {
+    width: 100%;
+    height: 100%;
+}
+
+.describeprd p span:not(:last-child) {
+    color: var(--hover-blackAndWite);
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.describeprd p span:hover {
+    color:black ;
+}
+
+.foraddorder span {
+    padding: 7.5px 10px;
+}
+
+.foraddorder span:checked {
+    border: 1px solid black;
+}
+
+.groupradio {
+
+    border-radius: 5px;
+}
+
+.groupradio:hover {
+    background-color: rgb(224, 224, 224);
+}
+
+.groupradio label {
+    position: relative;
+    width: 3rem;
+    padding: 0.75rem ;
+    cursor: pointer;
+    border: 1px solid rgba(146, 146, 146, 0.767);
+    border-radius: 10px;
+    font-size: 1.25rem;
+    overflow: hidden !important;
+}
+
+.groupradio input {
+    position: absolute;
+    z-index: -1;
+    visibility: hidden;
+}
+
+.first24{
+    line-height: 1.75rem;
+    
+}
+
+.groupradio input[type="radio"]:checked + label {
+    background-color: rgb(224, 224, 224);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.noback{
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+   
+}
+
+
+.quantityDiv input {
+    border-radius: 1rem;
+    border: 0.5px solid gray;
+    padding: 0.25rem 1rem;
+    width: 7.5rem;
+}
+
+.red {
+    color: red;
+}
+
+.button input{
+    color: white;
+    background-color:black;
+    border: transparent 1px solid;
+    border-radius: 20px;
+    transition: all 200ms ease-in-out;
+}
+
+.button input:hover {
+    background-color: var(--hover-blackAndWite);
+    transform: scale(1.05);
+}
+
+.disabeldbtn{
+    cursor:auto;
+    background-color: gray !important;
+}
+
+.active {
+    color: black !important;
+     border-bottom: 2.5px solid black !important;
+    font-weight: 500;
+}
+
+li button {
+border-bottom: 2.5px solid transparent ;
+transition: all 150ms ease-in-out;
+}
+
+li button:hover {
+    color: black !important;
+    border-bottom: 2.5px solid black !important;
+    font-weight: 500;
+}
+
+
+.reviwies input,
+.reviwies textarea{
+    padding: 0.2rem 0.5rem ;
+}
+
+.btn{
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    transition: all 200ms ease-in-out;
+}
+
+.btn:hover{
+    background-color: black;
+    transform: scale(1.08);
+
+}
+
+.button button{
+    background-color: gold;
+    color: black;
+    
+}
+
+.reviwielist{
+    padding: 1rem ;
+    height: 30rem;
+    overflow-y: auto;
+}
+
+.card {
+    height: fit-content;
+}
+
+.containerrr{
+    overflow: hidden;
+    border: 1px solid rgb(88, 88, 88);
+    border-radius: 10px;
+}
+
+ngb-rating{
+    color: gold;
+    font-size: 1.75rem;
+}
+
+.groupstar i {
+    color: gold;
+}
+
+.no{
+position: absolute;
+color: gray;
+font-size: 1.5rem;
+
+
+
+}
+
+
+@media (max-width:450px) {
+    .reviwielist{
+        height: 22.5rem;
+        
+    }
+}
+
+
+
+@media (max-width:767px) {
+    section {
+        padding: var(--sectionPaddinyYForsm);
+    }
+    th,
+    td {
+        padding: 1rem 0.25rem;
+    }
+    
+    .table {
+        background-color: rgb(233, 233, 233);
+        padding: 2rem 0.5rem !important;
+    }
+
+}

@@ -1,0 +1,68 @@
+<section class="container-fluied px-lg-5  px-3 py-5">
+    <div class="row h-100 w-100 justify-content-center align-items-center p-0 m-0">
+        <div class="login shadow col-11 col-md-6 mx-auto py-5  px-4">
+            <h2 class="text-center">sign up</h2>
+
+            <div>
+                <form #userForm="ngForm" (ngSubmit)="addUser(email.value,password.value,userName.value,phone.value)">
+                    <div class="my-4">
+                        <label class="d-block mb-1" for="username">user name</label>
+                        <input name="userName" id="username" type="text" #userName="ngModel" ngModel required
+                            placeholder="enter your email">
+                        <div class="mt-1" *ngIf="userName.invalid && userName.touched">
+                            <p class="red" *ngIf="userName.errors?.['required']">please enter your name</p>
+                        </div>
+                    </div>
+                    <div class="my-4">
+                        <label class="d-block mb-1" for="number">phone number</label>
+                        <input name="phone" id="number" type="text" #phone="ngModel" ngModel required
+                            placeholder="enter your phone number" pattern="^01[0-2]{1}[0-9]{8}$">
+                        <div class="mt-1" *ngIf="phone.invalid && phone.touched">
+                            <p class="red" *ngIf="phone.errors?.['required']">please enter your phone number</p>
+                            <p class="red" *ngIf="phone.errors?.['pattern']">please enter correct number</p>
+                        </div>
+                    </div>
+                    <div class="my-4">
+                        <label class="d-block mb-1" for="email">email</label>
+                        <input name="email" id="email" (change)="checkUser(email.value)" type="text" #email="ngModel"
+                            ngModel required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            placeholder="enter your email">
+                        <div class="mt-1" *ngIf="email.invalid && email.touched">
+                            <p class="red" *ngIf="email.errors?.['required']">please enter your email</p>
+                            <p class="red" *ngIf="email.errors?.['pattern']">please enter correct email</p>
+
+                        </div>
+                        <p class="red" *ngIf="userEmail==true">this email is used</p>
+                    </div>
+                    <div class="my-4">
+                        <label class="d-block mb-1" for="pass">password</label>
+                        <input name="password" id="pass" type="password" #password="ngModel" ngModel required
+                            pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$" placeholder="enter your password">
+                        <div class="mt-1" *ngIf="password.invalid && password.touched">
+                            <p class="red" *ngIf="password.errors?.['required']">please enter your password</p>
+                            <p class="red" *ngIf="password.errors?.['pattern']">please enter strong password</p>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="d-block mb-1" for="pass2">confirm password</label>
+                        <input name="pass2" id="pass2" type="password" #password1="ngModel" ngModel required
+                            placeholder="enter your password">
+                        <div class="mt-1" *ngIf="password1.invalid && password1.touched">
+                            <p class="red p-0 m-0" *ngIf="password1.errors?.['required']">please enter your password</p>
+                        </div>
+                        <div class="mt-1" *ngIf="password1.touched">
+                            <p class="red" *ngIf="password.value!=password1.value">Invalid password. Please check and re-enter your password.</p>
+                        </div>
+
+                    </div>
+                    <div class="mt-4"><input class="btn bg-black text-white" value="sign up"
+                            [disabled]="userForm.invalid || password.value!=password1.value || userEmail==true"
+                            type="submit"></div>
+                </form>
+                <div class="text-center haveacc mt-4">
+                    <p>i have an account? <a routerLink="/login">login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

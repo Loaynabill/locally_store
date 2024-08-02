@@ -1,0 +1,174 @@
+<section class="container-fluied px-lg-5 px-2 px-md-4">
+    <div>
+        <form [formGroup]="orderForm">
+            <div class="row">
+                <div class="col-12 col-md-6 px-5">
+                    <div>
+                        <label for="firstname">first name <span class="red ms-1">&#8727;</span></label>
+                        <input class="form-control" formControlName="firstname" id="firstname" type="text"
+                            placeholder="enter your first name" name="firstname">
+                        <div class="pt-2"
+                            *ngIf="orderForm.get('firstName')?.touched && orderForm.get('firstName')?.touched">
+                            <small class="red" *ngIf="orderForm.get('firstName')?.errors?.['required']">enter your first
+                                name</small>
+                            <small class="red" *ngIf="orderForm.get('firstName')?.errors?.['pattern']">enter only
+                                caracter</small>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label for="lastname">last name <span class="red ms-1">&#8727;</span></label>
+                        <input class="form-control" id="lastname" formControlName="lastname" type="text"
+                            placeholder="enter your last name" name="lastname">
+                        <div class="pt-2" class="pt-2"
+                            *ngIf="orderForm.get('lastName')?.touched && orderForm.get('lastName')?.touched">
+                            <small class="red" *ngIf="orderForm.get('lastName')?.errors?.['required']">enter your last
+                                name</small>
+                            <small class="red" *ngIf="orderForm.get('lastName')?.errors?.['pattern']">enter only
+                                caracter</small>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label for="email">email <span class="red ms-1">&#8727;</span></label>
+                        <input class="form-control" id="email" formControlName="email" name="email" type="email"
+                            placeholder="enter your email">
+                        <div class="pt-2" *ngIf="orderForm.get('email')?.touched && orderForm.get('email')?.touched">
+                            <small class="red" *ngIf="orderForm.get('email')?.errors?.['required']">enter your last
+                                name</small>
+                            <small class="red" *ngIf="orderForm.get('email')?.errors?.['pattern']">enter a valid
+                                email</small>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label for="phone">phone <span class="red ms-1">&#8727;</span></label>
+                        <input class="form-control" id="phone" formControlName="phone" name="phone" type="text"
+                            placeholder="enter your phone number">
+                        <div class="pt-2" *ngIf="orderForm.get('phone')?.touched && orderForm.get('phone')?.touched">
+                            <small class="red" *ngIf="orderForm.get('phone')?.errors?.['required']">enter your
+                                number</small>
+                            <small class="red" *ngIf="orderForm.get('phone')?.errors?.['pattern']">enter a valid
+                                number</small>
+                        </div>
+                    </div>
+                    <div class="mt-4" formGroupName="adderess">
+                        <div><label for="country">country <span class="red ms-1">&#8727;</span></label>
+
+                            <input class="form-control" id="country" formControlName="country" name="country"
+                                type="text" placeholder="enter your email" readonly>
+                            <div class="pt-2"
+                                *ngIf="orderForm.get('adderess.country')?.touched && orderForm.get('adderess.country')?.touched">
+                                <small class="red" *ngIf="orderForm.get('adderess.country')?.errors?.['required']">enter
+                                    your country</small>
+                                <small class="red" *ngIf="orderForm.get('adderess.country')?.errors?.['pattern']">enter
+                                    country</small>
+                            </div>
+                        </div>
+                        <div class="mt-4"><label for="city">city <span class="red ms-1">&#8727;</span></label>
+                            <input class="form-control" id="city" formControlName="city" name="city" type="text"
+                                placeholder="enter your email">
+                            <div class="pt-2"
+                                *ngIf="orderForm.get('adderess.city')?.touched && orderForm.get('adderess.city')?.touched">
+                                <small class="red" *ngIf="orderForm.get('adderess.city')?.errors?.['required']">enter
+                                    your
+                                    city</small>
+                                <small class="red" *ngIf="orderForm.get('adderess.city')?.errors?.['pattern']">enter a
+                                    valid city</small>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <label for="street">street <span class="red ms-1">&#8727;</span></label>
+                            <input class="form-control" id="street" formControlName="street" name="street" type="text"
+                                placeholder="enter your street">
+                            <div class="pt-2"
+                                *ngIf="orderForm.get('adderess.street')?.touched && orderForm.get('adderess.street')?.touched">
+                                <small class="red" *ngIf="orderForm.get('adderess.street')?.errors?.['required']">enter
+                                    your street</small>
+                                <small class="red" *ngIf="orderForm.get('adderess.street')?.errors?.['pattern']">enter
+                                    a valid street</small>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <label for="unit">unit <span class="red ms-1">&#8727;</span></label>
+                            <input class="form-control" id="unit" formControlName="unit" name="unit" type="text"
+                                placeholder="enter your unit">
+                            <div class="pt-2"
+                                *ngIf="orderForm.get('adderess.unit')?.touched && orderForm.get('adderess.unit')?.touched">
+                                <small class="red" *ngIf="orderForm.get('adderess.unit')?.errors?.['required']">enter
+                                    your unit</small>
+                                <small class="red" *ngIf="orderForm.get('adderess.unit')?.errors?.['pattern']">enter
+                                    a valid unit</small>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <label for="zipCode">zipCode <span class="red ms-1">&#8727;</span></label>
+                            <input class="form-control" id="zipCode" formControlName="zipCode" name="zip" type="text"
+                                placeholder="enter your unit">
+                            <div class="pt-2"
+                                *ngIf="orderForm.get('adderess.zipCode')?.touched && orderForm.get('adderess.zipCode')?.touched">
+                                <small class="red" *ngIf="orderForm.get('adderess.zipCode')?.errors?.['required']">enter
+                                    zip code</small>
+                                <small class="red" *ngIf="orderForm.get('adderess.zipCode')?.errors?.['pattern']">enter
+                                    a valid zip code</small>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-12 col-md-6 ">
+                    <div class="rightside px-4 overflow-hidden px-md-4 py-5 my-5 my-md-0">
+                        <h2 class="text-center">your order</h2>
+                        <div class="py-3">
+                            <div class="row justify-content-between">
+                                <div class="col">
+                                    <h3>PRODUCTS</h3>
+                                </div>
+                                <div class="col text-end">
+                                    <h3>SUBTOTAL</h3>
+                                </div>
+                                <hr class="mt-3">
+                            </div>
+                            <ng-container *ngFor="let prd of getAllprd()">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <p class="text-black-50">{{prd.product.title}}</p>
+                                        <p class="text-black-50">size : {{prd.size}}</p>
+                                        <p class="text-black-50">the quantity is {{prd.quantityOfUser}} piece</p>
+
+                                    </div>
+                                    <div class="text-end">
+                                        <p class="green">{{prd.totalPrice | currency : "LE "}}</p>
+
+                                    </div>
+
+                                </div>
+                                <hr class="mt-1 mb-3">
+                            </ng-container>
+                        </div>
+                        <div class="footer py-3">
+                            <div class="text-center py-3">
+                                <form #addsale="ngForm">
+                                    <input required ngModel #promocode="ngModel" class="form-control"
+                                        placeholder=" enter the promocode" type="text" name="promocode">
+                                    <input type="submit" value="add promocode" class="mt-4 btn"
+                                        [disabled]="addsale.invalid" (click)="applyPromocode(promocode.value)">
+                                </form>
+                            </div>
+                            <div class="py-4">
+                                <h4 class="green" *ngIf="!hideTotalprice">total price: {{getTotalPrice() |
+                                    currency:'LE'}}
+                                </h4>
+                                <h4 class="green py-4" *ngIf="hideTotalprice">total price: <del>{{getTotalPrice() |
+                                        currency:'LE'}}</del></h4>
+                                <h4 class="green" *ngIf="hideTotalprice">total price: {{priceAfterSale | currency:'LE'}}
+                                </h4>
+                                <div class="text-center mt-4"> <input type="submit" value="complete the order"
+                                        class="btn" [disabled]="orderForm.invalid  || getTotalPrice()==0"
+                                        (click)="orderNow(orderForm.value,orderForm)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

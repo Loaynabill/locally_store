@@ -1,0 +1,26 @@
+section {
+    padding: var(--sectionPaddingY);
+}
+
+.card img {
+    width: 100%;
+}
+
+.hr{
+    color:red;
+    width: 7.5%;
+    background-color:red;
+    height: 0.2rem;
+    margin: 0 auto;
+    opacity: 1;
+    border-radius: 2.5px;
+}
+
+
+
+@media (max-width:767px) {
+    section{
+        padding:var(--sectionPaddinyYForsm) ;
+    }
+
+}

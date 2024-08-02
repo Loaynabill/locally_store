@@ -1,0 +1,32 @@
+<section class="container-fluied px-lg-5 px-lg-5 px-2 px-md-4">
+    <div class="text-center">
+        <h2>my order</h2>
+        <hr class="hr mt-3">
+    </div>
+    <div class="row justify-content-start gy-4 py-5">
+        <ng-container *ngFor="let prd of getAllPrd()">
+            <div class="col-md-3 col-6">
+                <div class="card py-2">
+                    <div class="card-body">
+                        <div *ngFor="let prdd of prd.productlist">
+                            <h5 class="card-title py-2">{{prdd.product.title}}</h5>
+                            <p class="card-text">size : {{prdd.size}}</p>
+                            <p class="card-text">quantity : {{prdd.quantityOfUser}}</p>
+                            <hr>
+                        </div>
+                        <div class="py-2">
+                            <p>total price : {{prd.finaltotalprice | currency: ' LE '}}</p>
+                            <p class="d-flex justify-content-between"><span>{{prd.date | date : "mediumDate"
+                                    }}</span><span>{{prd.date | date :
+                                    "shortTime"
+                                    }}</span></p>
+                            <p>the order has sended succesuflly <i class="fa-solid fa-circle-check green ms-1"></i></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
+</section>

@@ -1,0 +1,360 @@
+<section class="container-fluied px-lg-5 px-3 px-md-4">
+    <div class="row gy-5 justify-content-between ">
+        <div class="col-12 col-md-5">
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let img of prd.images">
+                    <img src="../../../assets/{{img}}" class="w-100 imgslider" alt="{{prd.title}}">
+                </ng-template>
+            </ngb-carousel>
+
+
+        </div>
+
+
+        <div class="col-12 col-md-6">
+            <div class="describeprd">
+                <p><span routerLink="/Home">home / </span>
+                    <span [ngSwitch]="prd.genderid">
+                        <span [routerLink]="['/Product/Mens',1]" *ngSwitchCase="1">mens / </span>
+                        <span [routerLink]="['/Product/Woamens',2]" *ngSwitchCase="2">Woamens / </span>
+                    </span>
+                    <span [ngSwitch]="prd.categoryid">
+                        <span class="m-0" *ngSwitchCase="1">jackets</span>
+                        <span class="m-0" *ngSwitchCase="2">hoodies</span>
+                        <span class="m-0" *ngSwitchCase="3">t-shirt</span>
+                        <span class="m-0" *ngSwitchCase="4">jeans</span>
+                        <span class="m-0" *ngSwitchCase="5">pants</span>
+                    </span>
+                    <span> / {{prd.title}}</span>
+                </p>
+                <h2 class="my-md-5 my-3">{{prd.title}}</h2>
+                <h4 class="green">{{prd.price | currency: "LE "}}</h4>
+            </div>
+            <div *ngIf="(prd.categoryid!=5) && (prd.categoryid!=4)" class="foraddorder py-4">
+                <form #addForm="ngForm" class="row gy-4 gy-md-5">
+                    <div>
+                        <div class="col-12 d-flex justify-content-between align-items-center">
+                            <p class="pt-3">choose your size :</p>
+                            <div class="groupradio position-relative"><input [disabled]="prd.amount.s==0"
+                                    (change)="sizefun(size.value)" #size="ngModel" required ngModel name="size"
+                                    value="s" type="radio" id="s"><label [class.noback]="prd.amount.s==0"
+                                    class="d-flex justify-content-center align-items-center" for="s">s <small class="no"
+                                        *ngIf="prd.amount.s==0">/</small></label>
+                            </div>
+                            <div class="groupradio position-relative "><input [disabled]="prd.amount.m==0"
+                                    (change)="sizefun(size.value)" #size="ngModel" required ngModel name="size"
+                                    value="m" type="radio" id="m"><label [class.noback]="prd.amount.m==0"
+                                    class="d-flex justify-content-center align-items-center" for="m">m <small class="no"
+                                        *ngIf="prd.amount.m==0">/</small></label>
+                            </div>
+                            <div class="groupradio position-relative "><input [disabled]="prd.amount.l==0"
+                                    (change)="sizefun(size.value)" #size="ngModel" required ngModel name="size"
+                                    value="l" type="radio" id="l"><label for="l" [class.noback]="prd.amount.l==0"
+                                    class="d-flex justify-content-center align-items-center">l <small class="no"
+                                        *ngIf="prd.amount.l==0">/</small></label>
+                            </div>
+                            <div class="groupradio position-relative"><input [disabled]="prd.amount.xl==0"
+                                    (change)="sizefun(size.value)" #size="ngModel" required ngModel name="size"
+                                    value="xl" type="radio" id="xl"><label [class.noback]="prd.amount.xl==0"
+                                    class="d-flex justify-content-center align-items-center" for="xl">xl <small
+                                        class="no" *ngIf="prd.amount.xl==0">/</small></label>
+                            </div>
+                            <div class="mt-3" *ngIf="size.invalid && size.touched">
+                                <p class="red" *ngIf="quantity.errors?.['required']">please choose your size !</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-12 quantityDiv">
+                        <label for="quantityy" class="me-3">quantity : </label>
+                        <input name="quantity" #quantity="ngModel" id="quantityy" ngModel required type="number" min="1"
+                            max="{{maxlimit}}">
+                        <div class="mt-2" *ngIf="quantity.invalid && quantity.touched">
+                            <p class="red" *ngIf="quantity.errors?.['required']">please enter the quantity !</p>
+                            <p class="red" *ngIf="quantity.errors?.['max']">the quantity is not valid </p>
+                            <p class="red" *ngIf="quantity.errors?.['min']">the quantity is not valid </p>
+                        </div>
+                    </div>
+
+                    <div class="button d-flex justify-content-between text-center text-md-start py-4 ">
+                        <button class="btn col-5 " (click)="goBack()">back</button> <input type="submit" value="add"
+                            class="btn  col-5" (click)="onsumbit(prd,size.value,quantity.value,addForm)"
+                            [disabled]=" addForm.invalid">
+                    </div>
+                </form>
+
+            </div>
+            <div *ngIf="(prd.categoryid==5) || (prd.categoryid==4)" class="foraddorder py-4">
+                <form #addForm="ngForm" class="row gy-4 gy-md-5">
+                    <div>
+                        <div class="col-12 d-flex justify-content-between align-items-center">
+                            <p class="pt-3">choose your size :</p>
+                            <div class="groupradio position-relative"><input [disabled]="prd.amount.s==0"
+                                    (change)="sizefun(size.value)" #size="ngModel" required ngModel name="size"
+                                    value="s" type="radio" id="s"><label [class.noback]="prd.amount.s==0"
+                                    class="d-flex justify-content-center align-items-center" for="s">30 <small
+                                        class="no" *ngIf="prd.amount.s==0">/</small></label>
+                            </div>
+                            <div class="groupradio position-relative "><input [disabled]="prd.amount.m==0"
+                                    (change)="sizefun(size.value)" #size="ngModel" required ngModel name="size"
+                                    value="m" type="radio" id="m"><label [class.noback]="prd.amount.m==0"
+                                    class="d-flex justify-content-center align-items-center" for="m">32 <small
+                                        class="no" *ngIf="prd.amount.m==0">/</small></label>
+                            </div>
+                            <div class="groupradio position-relative "><input [disabled]="prd.amount.l==0"
+                                    (change)="sizefun(size.value)" #size="ngModel" required ngModel name="size"
+                                    value="l" type="radio" id="l"><label for="l" [class.noback]="prd.amount.l==0"
+                                    class="d-flex justify-content-center align-items-center">34 <small class="no"
+                                        *ngIf="prd.amount.l==0">/</small></label>
+                            </div>
+                            <div class="groupradio position-relative"><input [disabled]="prd.amount.xl==0"
+                                    (change)="sizefun(size.value)" #size="ngModel" required ngModel name="size"
+                                    value="xl" type="radio" id="xl"><label [class.noback]="prd.amount.xl==0"
+                                    class="d-flex justify-content-center align-items-center" for="xl">36 <small
+                                        class="no" *ngIf="prd.amount.xl==0">/</small></label>
+                            </div>
+                            <div class="mt-3" *ngIf="size.invalid && size.touched">
+                                <p class="red" *ngIf="quantity.errors?.['required']">please choose your size !</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-12 quantityDiv">
+                        <label for="quantityy" class="me-3">quantity : </label>
+                        <input name="quantity" #quantity="ngModel" id="quantityy" ngModel required type="number" min="1"
+                            max="{{maxlimit}}">
+                        <div class="mt-2" *ngIf="quantity.invalid && quantity.touched">
+                            <p class="red" *ngIf="quantity.errors?.['required']">please enter the quantity !</p>
+                            <p class="red" *ngIf="quantity.errors?.['max']">the quantity is not valid </p>
+                            <p class="red" *ngIf="quantity.errors?.['min']">the quantity is not valid </p>
+                        </div>
+                    </div>
+
+                    <div class="button d-flex justify-content-between text-center text-md-start py-4 ">
+                        <button class="btn col-5 " (click)="goBack()">back</button> <input type="submit" value="add"
+                            class="btn  col-5" (click)="onsumbit(prd,size.value,quantity.value,addForm)"
+                            [disabled]=" addForm.invalid">
+                    </div>
+                </form>
+
+            </div>
+
+
+            <div class="py-4">
+                <p class="first24">Introducing our first 24 collections
+
+                    We are offering a high-quality <span [ngSwitch]="prd.categoryid">
+                        <span class="m-0" *ngSwitchCase="1">jackets </span>
+                        <span class="m-0" *ngSwitchCase="2">hoodies </span>
+                        <span class="m-0" *ngSwitchCase="3">t-shirt </span>
+                        <span class="m-0" *ngSwitchCase="4">jeans </span>
+                        <span class="m-0" *ngSwitchCase="5">pants </span>
+                    </span> in boulivard material with the perfect fit.
+
+                    Fourteen collection this time is not only buying clothes; it's buying a lifestyle.</p>
+            </div>
+        </div>
+        <div class="col-12">
+            <ul class="nav gap-md-3 justify-content-center py-5">
+                <li class="nav-item">
+                    <button [class.active]="!according" class="nav-link text-black-50"
+                        (click)="showaccoring()">important information</button>
+                </li>
+                <li class="nav-item">
+                    <button [class.active]="sizeChart" (click)="showSizeChart()" class="nav-link text-black-50">size
+                        chart</button>
+                </li>
+                <li class="nav-item">
+                    <button [class.active]="review" (click)="showRewiew()"
+                        class="nav-link text-black-50">reviwies</button>
+                </li>
+
+
+            </ul>
+            <div *ngIf="sizeChart" class="sizeChart ">
+                <div class="table my-4 text-center">
+                    <div class="text-center mb-5">
+                        <h3>size chart</h3>
+                    </div>
+                    <table class="w-100" *ngIf="(prd.categoryid!=4) && (prd.categoryid!=5)">
+
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>small</th>
+                                <th>medium</th>
+                                <th>large</th>
+                                <th>X-Large</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Length</td>
+                                <td>70.5</td>
+                                <td>74.5</td>
+                                <td>79</td>
+                                <td>81</td>
+                            </tr>
+                            <tr>
+                                <td>width</td>
+                                <td>57.5</td>
+                                <td>61.5</td>
+                                <td>64</td>
+                                <td>66</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="w-100" *ngIf="(prd.categoryid==4) || (prd.categoryid==5)">
+
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>size 30</th>
+                                <th>size 32</th>
+                                <th>size 34</th>
+                                <th>size 36</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Length</td>
+                                <td>115 cm</td>
+                                <td>115 cm</td>
+                                <td>115 cm</td>
+                                <td>115 cm</td>
+                            </tr>
+                            <tr>
+                                <td>width</td>
+                                <td>36 cm</td>
+                                <td>40 cm</td>
+                                <td>44 cm</td>
+                                <td>48 cm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="accordingg" [hidden]="according">
+                <div ngbAccordion>
+                    <div ngbAccordionItem>
+                        <h2 ngbAccordionHeader>
+                            <button ngbAccordionButton>shiping and return</button>
+                        </h2>
+                        <div ngbAccordionCollapse>
+                            <div ngbAccordionBody>
+                                <ng-template>
+                                    <h2 class="text-center py-4">WE DO NOT OFFER REFUNDS</h2>
+                                    <p>We offer exchanges on all items under the following conditions:
+                                        In order to exchange a purchased item, you have to submit a request
+                                        within 48 hours of the date of delivery.
+                                        All purchased items should be in their original condition
+                                        (unwashed, unaltered, spotless and in their original package).
+                                        Exchanging your purchased item with a different size is all right
+                                        as long as the requested item is in stock within the exchange period.
+                                        Exchanges can be requested only via Instagram direct messages.
+                                        *Shipping expenses required to execute an exchange
+                                        are the responsibility of the customer and may vary from delivery fees.
+                                        *Exchanges may take up to 6 business days.</p>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                    <div ngbAccordionItem>
+                        <h2 ngbAccordionHeader>
+                            <button ngbAccordionButton>care instructions</button>
+                        </h2>
+                        <div ngbAccordionCollapse>
+                            <div ngbAccordionBody>
+                                <ng-template>
+                                    <p>Turn the T-shirt inside out before washing it.
+                                        Wash on a gentle cycle!
+                                        To be washed at low temperatures, prefer cold water.
+                                        If you want to iron the T-shirt, iron it inside out.
+                                        Don’t directly iron the print.</p>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reviwies row  gy-5 gx-5 " *ngIf="review">
+                <div class="col-12 col-md-6">
+                    <div class="col-12 mb-4">
+                        <h3 class="d-block">reviwies ({{reviewlist.length}})</h3>
+                    </div>
+                    <div class="containerrr">
+                        <div class="reviwielist row gy-4 align-items-start px-4">
+                            <ng-container *ngFor="let revie of reviewlist">
+                                <div class="card col-12">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{revie.username}}</h5>
+                                        <p class="groupstar"><span *ngFor="let star of revie.rating">
+                                                <i class="fa-solid fa-star"></i>
+                                            </span> </p>
+                                        <p class="card-text">{{revie.userreview}}</p>
+                                        <p class="card-text">{{revie.created_at | date:'dd/MM/yyyy'}}</p>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div>
+                        <p>be the first to reviwie {{prd.title}}</p>
+                        <p>Your email address will not be published. Required fields are marked <span
+                                class="red">&#8727;</span></p>
+                        <div>
+                            <form #formreviwies="ngForm" class="row gy-3"
+                                (ngSubmit)="sendreview(formreviwies.value,prd.id,formreviwies,currentRate)">
+                                <div> <label for="rate" class="d-block ">your rate <span
+                                            class="red">&#8727;</span></label>
+                                </div>
+                                <div class="groupStars m-0">
+                                    <ngb-rating [(rate)]="currentRate" name="rating"
+                                        (rateChange)="changeRating(currentRate)" [max]="5"></ngb-rating>
+                                </div>
+                                <div> <label for="textarea" class="d-block mb-3">your review <span
+                                            class="red">&#8727;</span></label>
+                                    <textarea #textarea="ngModel" required ngModel id="textarea" name="userreview"
+                                        class="w-100" rows="10"></textarea>
+                                    <div *ngIf="textarea.invalid && textarea.touched">
+                                        <p class="red">please write your review</p>
+                                    </div>
+                                </div>
+                                <div> <label for="name" class="d-block mb-3">your name <span
+                                            class="red">&#8727;</span></label>
+                                    <input #username="ngModel" pattern="^[a-z]+$" required ngModel class="w-100"
+                                        type="text" id="name" name="username">
+                                    <div class="mt-2" *ngIf="username.invalid && username.touched">
+                                        <p *ngIf="username.errors?.['required']" class="red">please write your name</p>
+                                        <p *ngIf="username.errors?.['pattern']" class="red">please write your name
+                                            without number</p>
+                                    </div>
+                                </div>
+                                <div> <label for="email" class="d-block mb-3">your email <span
+                                            class="red">&#8727;</span></label>
+                                    <input pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" #email="ngModel"
+                                        ngModel class="w-100" type="email" id="name" required name="email">
+                                    <div class="mt-2" *ngIf="email.invalid && email.touched">
+                                        <p *ngIf="email.errors?.['required']" class="red">please write your email</p>
+                                        <p *ngIf="email.errors?.['pattern']" class="red">please write correct email</p>
+                                    </div>
+                                </div>
+                                <div class="mt-5"><input type="submit" class="btn col-5 py-1"
+                                        [disabled]="formreviwies.invalid">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

@@ -1,0 +1,107 @@
+<header class="shadow">
+    <div class="bromoandwarning py-2 d-flex flex-nowrap">
+        <span class="hide">ONCE YOU ENTERED OUR TRIBE, THERE’S NO WAY BACK!</span>
+        <span class="mx-auto">ONCE YOU ENTERED OUR TRIBE, THERE’S NO WAY BACK!</span>
+        <span class="hide">ONCE YOU ENTERED OUR TRIBE, THERE’S NO WAY BACK!</span>
+
+    </div>
+    <!-- animate__animated animate__pulse animate__infinite	infinitee -->
+    <nav class="navbar navbar-expand-lg navbar-light py-3 ">
+        <div class="container-fluid  d-flex px-3 px-lg-5">
+            <div
+                class="order-2 mx-auto text-center col-lg  animate__animated animate__pulse animate__infinite	infinitee animate__slow	1s">
+                <a routerLink="/Home" class="navbar-brand text-white m-0 ">LOCALLY</a>
+            </div>
+            <div class="order-lg-5 col-lg text-end groubIcon">
+                <ul>
+                    <li class="d-inline-block me-4 me-md-5">
+                        <button class="position-relative" (click)="showCart()">
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {{getAllCart().length}}
+                            </span>
+                            <i class="fa-solid fa-cart-shopping">
+                            </i></button>
+                    </li>
+                    <li class="d-inline-block"> <button [routerLink]="['/profile',profileID]" class="position-relative">
+                            <i class="fa-regular fa-circle-user"></i></button></li>
+                </ul>
+
+            </div>
+            <button class="navbar-toggler order-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse order-5 col-lg order-lg-1" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" routerLink="/Home" routerLinkActive="active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/Product/Mens',1]" routerLinkActive="active">mens</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/Product/Woamens',2]" routerLinkActive="active">women</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/Add/sucess">order</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </nav>
+</header>
+<div class="d-none" [ngClass]="{'cancelCart':cancel,'divCart':showdiv}">
+    <div *ngIf="!cancel" class="col-md-5 col-lg-8 col-0 close" (click)="cancelcart()"></div>
+    <div class="ms-auto h-100 cartshop px-3 py-4 bg-white col-md-7 col-lg-4 col-12">
+        <div class="hearder d-flex justify-content-between align-items-center">
+            <div class="titleOfCart ">
+                <h4>your cart</h4>
+            </div>
+            <div class="cancel">
+                <button class="py-1 redx px-2 text-center" (click)="cancelcart()"><i
+                        class="fa-solid fa-x "></i></button>
+            </div>
+        </div>
+        <hr>
+        <div class="bodyCart w-100">
+            <ng-container *ngFor="let prd of getAllCart() ; let i=index">
+                <div class="d-flex justify-content-between">
+                    <div class="imgCart col-4"><img class="w-100 h-100" src="../../../assets/{{prd.product.images[0]}}">
+                    </div>
+                    <div class="px-3">
+                        <h5>{{prd.product.title}}</h5>
+                        <p class="m-0">size : {{prd.size}} </p>
+                        <p class="my-2">quantity : {{prd.quantityOfUser}}</p>
+                        <p class="m-0">subtotal price : <span class="green">{{prd.totalPrice | currency: 'LE '}}</span>
+                        </p>
+                    </div>
+                    <div class=><button (click)="removeprd(+i)" class="redbg  paddingCancl"><i
+                                class="fa-solid fa-x "></i></button></div>
+                </div>
+                <hr>
+            </ng-container>
+        </div>
+        <div class="footerCart bg-white px-3">
+            <div class="text-center mt-5" *ngIf="totalprice()==0">
+                <h2>Shopping bag is empty </h2>
+            </div>
+            <div *ngIf="totalprice()!=0">
+                <h4 class="pb-4 m-0  d-flex justify-content-between"><span>total price
+                        :</span>
+                    <span class="green">{{totalprice() | currency: 'LE '}}</span>
+                </h4>
+                <div class="text-center row justify-content-between mt-1">
+                    <button [disabled]="totalprice()==0" class="btnClear btn col-5" (click)="clearCart()">clear
+                        cart</button><button routerLink="/Add/order" [disabled]="totalprice()==0"
+                        class="btnCheck btn col-5">check
+                        out</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
